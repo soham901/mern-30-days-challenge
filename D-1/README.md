@@ -1,3 +1,5 @@
+# Day 1: Getting Started
+
 ## Instructions:
 
 - Set up a development environment with Node.js, MongoDB, and React

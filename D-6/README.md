@@ -1,3 +1,5 @@
+# Day 6: React Router
+
 ## Instructions:
 
 - Learn about React Router for client-side routing

@@ -1,3 +1,5 @@
+# Day 4: MongoDB and Mongoose
+
 ## Instructions:
 
 - Set up a MongoDB database and connect it to your Express application

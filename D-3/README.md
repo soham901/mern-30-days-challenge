@@ -1,3 +1,5 @@
+# Day 3: Express Fundamentals
+
 ## Instructions:
 
 - Create a RESTful API using Express

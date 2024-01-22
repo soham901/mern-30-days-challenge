@@ -1,3 +1,5 @@
+# Day 2: React Fundamentals
+
 ## Instructions:
 
 - Learn the fundamentals of React, including components, state, and props
