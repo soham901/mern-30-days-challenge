@@ -35,8 +35,8 @@ As of today, **January 22, 2024**, I have completed **Day 6** of the challenge. 
 - **Day 4:** Introduction to Express.js
 - **Day 5:** Building simple APIs with Express.js
 - **Day 6:** Getting started with React.js
-
-<br />
+- **Day 7:** Form Handling and Validation with React.js
+  <br />
 
 **Join the Journey!**
 
