@@ -1,0 +1,115 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Pagination */
+  --border-size: 2px;
+  --border-radius: 5px;
+  --color-gray: #5c5c5c;
+  --color-active: #0a7ea3;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+button.active {
+  background-color: #f9f9f9;
+  color: #242424;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7px;
+  width: fit-content;
+  list-style-type: unset;
+  border: var(--border-size) solid var(--color-gray);
+  padding: 8px 10px;
+  border-radius: var(--border-radius);
+  user-select: none;
+}
+
+.pagination-item {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+}
+
+.pagination-item:hover {
+  cursor: pointer;
+  background-color: var(--color-gray);
+  transition: background-color 0.1s linear;
+}
+
+.pagination-item-active {
+  color: white;
+  background-color: var(--color-active);
+  pointer-events: none;
+  transition: background-color 0.1s linear;
+}
