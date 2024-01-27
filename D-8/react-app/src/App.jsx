@@ -23,7 +23,8 @@ function Pagination() {
 
   const handleRefresh = () => {
     // refresh the page
-    setPage(0);
+    fetchData();
+    setPage(1);
   };
 
   const setPage = (p) => {
