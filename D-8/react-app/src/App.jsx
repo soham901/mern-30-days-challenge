@@ -6,12 +6,14 @@ function Pagination() {
   let { currentPage, length, totalPages, data } = fetchedData;
   const [limit, updateLimit] = useState(10);
   const [page, updatePage] = useState(1);
+  const [sortBy, updateSortBy] = useState("title");
+  const [sortOrder, updateSortOrder] = useState("asc");
 
   const btnRefresh = useRef();
 
   async function fetchData() {
     const res = await fetch(
-      `http://localhost:3000?page=${page}&limit=${limit}`
+      `http://localhost:3000?page=${page}&limit=${limit}&sortBy=${sortBy}&sortOrder=${sortOrder}`
     );
     const d = await res.json();
     setLatestData(d);
@@ -19,7 +21,7 @@ function Pagination() {
 
   useEffect(() => {
     fetchData();
-  }, [page]);
+  }, [page, sortBy, sortOrder]);
 
   const handleRefresh = () => {
     // refresh the page
@@ -86,9 +88,16 @@ function Pagination() {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "2rem",
+        gap: "1rem",
       }}
     >
+      <h2
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Day 8: Pagination and Sorting
+      </h2>
       <div
         style={{
           backgroundColor: "#2f2f2f",
@@ -107,7 +116,35 @@ function Pagination() {
             textAlign: "center",
           }}
         >
-          Limit per page: {limit}
+          <div className="flex">
+            <div className="flex-1">
+              <label htmlFor="sortBy">Sort by:</label>
+              <select
+                name="sortBy"
+                id="sortBy"
+                onChange={(e) => {
+                  updateSortBy(e.target.value);
+                }}
+              >
+                <option value="title">Title</option>
+                <option value="timestamp">Date</option>
+              </select>
+            </div>
+            <div className="flex-1">
+              <label htmlFor="sortOrder">Order:</label>
+              <select
+                name="sortOrder"
+                id="sortOrder"
+                onChange={(e) => {
+                  updateSortOrder(e.target.value);
+                }}
+              >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
+          </div>
+          <div className="">Limit per page: {limit}</div>
         </div>
         <div
           style={{
@@ -154,8 +191,16 @@ function Pagination() {
           Array.isArray(data) &&
           data.map((d) => {
             return (
-              <div className="" key={d._id}>
-                <div>{d.title}</div>
+              <div
+                key={d._id}
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div style={{ fontWeight: "bold" }}>{d.title}</div>
+                <div>{new Date(d.timestamp).toLocaleDateString()}</div>
               </div>
             );
           })}

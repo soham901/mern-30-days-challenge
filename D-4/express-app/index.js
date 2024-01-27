@@ -11,8 +11,6 @@ const app = express();
 app.use(cors());
 
 
-
-
 app.get('/todos', async (req, res) => {
     const data = await d4_TodoTask.find({})
     res.send(data)
